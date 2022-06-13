@@ -29,10 +29,7 @@ const UploadModal = () => {
     const [duration, setDuration] = useState(0)
 
     const [audioUploaded, setIsAudioUploaded] = useState(false)
-    const [audioFilename, setAudioFilename] = useState('')
     const [coverUploaded, setIsCoverUploaded] = useState(false)
-    const [coverFilename, setCoverFilename] = useState('')
-
   const {
     isUploadModalOpen,
     setIsUploadModalOpen,
@@ -46,7 +43,6 @@ const UploadModal = () => {
         console.log(result?.info)
         setUrl(result?.info?.secure_url)
         setDuration(result?.info?.duration * 1000)
-        setAudioFilename(result?.info?.filename)
         setIsAudioUploaded(true)
     }
   }
@@ -54,7 +50,6 @@ const UploadModal = () => {
   const checkResultCover = (result) => {
     if (result?.event === 'success') {
         setCover(result?.info?.secure_url)
-        setCoverFilename(result?.info?.filename)
         setIsCoverUploaded(true)
     }
   }
@@ -121,7 +116,7 @@ const UploadModal = () => {
                     wd1.open()
                   }}
                 >
-                  {audioUploaded ? `${audioFilename}` : "Upload Audio"}
+                  {audioUploaded ? `Audio Uploaded` : "Upload Audio"}
                 </button>
                 <button
                   className={styles.button}
@@ -135,7 +130,7 @@ const UploadModal = () => {
 
                   }}
                 >
-                  {coverUploaded ? `${coverFilename}` : "Upload Cover"}
+                  {coverUploaded ? `Cover Uploaded` : "Upload Cover"}
                 </button>
                 </div>
                 
