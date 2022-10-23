@@ -16,7 +16,7 @@ export default function Home() {
     setIsPlaying(false)
   }, [setIsPlaying])
   return (
-    <div className="bg-black">
+    <div className="bg-gray-500">
       <Head>
         <title>Spotify Web3</title>
       </Head>
